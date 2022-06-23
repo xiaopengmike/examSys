@@ -3,3 +3,6 @@
 GET /api/business/testUsers 返回所有用户，如存在，则获取其id； 
 如果不存在，调用POST /api/business/testUsers
 {"userName":变量}
+
+获取题目，给用户做
+/api/business/questions?select=questionSummary,optionA,optionB,optionC,optionD

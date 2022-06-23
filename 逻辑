@@ -6,3 +6,6 @@ GET /api/business/testUsers 返回所有用户，如存在，则获取其id；
 
 获取题目，给用户做
 /api/business/questions?select=questionSummary,optionA,optionB,optionC,optionD
+
+做完了跟api对答案，前端计算分数，分数=答对数/总数 * 100分
+http://192.168.203.164:8888/api/business/questions?{id}

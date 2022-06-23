@@ -4,8 +4,10 @@ GET /api/business/testUsers 返回所有用户，如存在，则获取其id；
 如果不存在，调用POST /api/business/testUsers
 {"userName":变量}
 
-获取题目，给用户做
+# 获取题目，给用户做
 /api/business/questions?select=questionSummary,optionA,optionB,optionC,optionD
 
-做完了跟api对答案，前端计算分数，分数=答对数/总数 * 100分
+# 做完了一道跟api对答案，并展示正确答案
 http://192.168.203.164:8888/api/business/questions?{id}
+
+# 做完所有题目后，前端计算分数，分数=答对数/总数 * 100分

@@ -2,4 +2,4 @@
 - 输入用户用，提交校验
 GET /api/business/testUsers 返回所有用户，如存在，则获取其id； 
 如果不存在，调用POST /api/business/testUsers
-{"testUser":变量}
+{"userName":变量}

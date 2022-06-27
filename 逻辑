@@ -1,3 +1,9 @@
+http://8.134.19.58:8888/api/auth/login
+POST
+username: superadmin
+password: 1234567890
+
+
 # 登录界面
 - 输入用户用，提交校验
 GET /api/business/testUsers 返回所有用户，如存在，则获取其id； 

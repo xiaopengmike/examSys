@@ -1,8 +1,11 @@
-http://8.134.19.58:8888/api/auth/login
+- IP端口
+http://8.134.19.58:8888
+
+- 初始化获得cookie
 POST
+/api/auth/login
 username: superadmin
 password: 1234567890
-
 
 # 登录界面
 - 输入用户用，提交校验

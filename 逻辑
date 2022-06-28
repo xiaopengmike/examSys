@@ -8,13 +8,19 @@ username: superadmin
 password: 1234567890
 
 # 登录界面
-- 输入用户用，提交校验
-GET /api/business/testUsers 返回所有用户，如存在，则获取其id； 
-如果不存在，调用POST /api/business/testUsers
+- 输入用户名，提交校验
+GET /api/business/exa_user 返回所有用户，如存在，则获取其id； 
+如果不存在，调用
+POST /api/business/exa_user
 {"userName":变量}
 
+# 选取题目类型
+
+# 生成一次考试
+
+
 # 获取题目，给用户做
-/api/business/questions?select=questionSummary,optionA,optionB,optionC,optionD
+/api/business/exa_question?select=questionSummary,optionA,optionB,optionC,optionD
 
 # 做完了一道跟api对答案，并展示正确答案
 http://192.168.203.164:8888/api/business/questions?{id}

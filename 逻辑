@@ -15,8 +15,32 @@ POST /api/business/exa_user
 {"userName":""}
 
 # 选取题目类型
+/api/business/exa_question_type
 
-# 题目类型随机出题x道（暂时2道），用题目id生成一次考试
+# 在此题目类型出题x道（暂时2道）
+/api/business/exa_question?questionType=maths&limit=2
+
+#生成考试，生成考试题目关系，传入考试题目
+(考试-题目多对多)
+- 考试表
+POST
+/exa_examination
+---
+
+- 考试题目关系表
+/exa_exam_question_relation
+
+
+- 考试题目关系表
+POST
+
+
+
+
+
+
+
+---
 
 # 获取这次考试的题目，给用户做
 /api/business/exa_question?select=questionSummary,optionA,optionB,optionC,optionD

@@ -5,7 +5,8 @@ http://8.134.19.58:8888
 POST
 /api/auth/login
 username: superadmin
-password: 1234567890
+password: CAc2007100
+
 
 # 登录界面
 - 输入用户名，提交校验

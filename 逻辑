@@ -11,7 +11,7 @@ password: CAc2007100
 # 登录界面
 - 输入用户名，提交校验
 GET /api/business/exa_user 返回所有用户，如存在，则获取其id； 
-如果不存在，调用
+如果不存在，调用api注册
 POST /api/business/exa_user
 {"userName":""}
 

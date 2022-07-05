@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<!-- 此页面通过VCC进行搭建: https://vcc3.sahadev.tech/ -->
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page</title>
+    <style stype="text/css">
+
+      .input{}
+      .container {  }
+    </style>
+   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/element-plus/2.1.0/theme-chalk/index.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="app">
+      <div class="container" style="min-height: 100%; padding-bottom: 100px;">
+        <div div-lc-mark></div>
+        <el-input
+          v-model="input"
+          placeholder="请输入用户名"
+          size="small"
+          class="input"
+        ></el-input>
+        <div div-lc-mark></div>
+        <el-button type="primary" @click="onButtonClick(value)" size="small"
+          >登录/不存在将注册</el-button
+        >
+      </div>
+    </div>
+  </body>
+
+  <script src="https://cdn.bootcdn.net/ajax/libs/vue/3.2.31/vue.global.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/element-plus/2.1.0/index.full.min.js"></script>
+  <script>
+
+      Vue.createApp({
+      props: [],
+      components: {},
+      data() {
+        return {
+          input: "",
+          showValue: "开启预览模式后,点击我显示预设逻辑",
+          showText: "这里的值声明于预设JS代码",
+        }
+      },
+      watch: {},
+      computed: {},
+      beforeCreate() {},
+      created() {},
+      beforeMount() {},
+      mounted() {
+        this.getApCookie();
+      },
+      beforeUpdate() {},
+      updated() {},
+      destroyed() {},
+      methods: {
+        request() {},
+        getApCookie(){
+          axios.post(`http://8.134.19.58:8888/api/auth/login?username=superadmin&password=CAc2007100`).then(res => {
+          this.setCookie('username','SESSION=ZGI5MDcwOGUtMjYwZS00ZmI4LWIyNDItNDMwMmFjMjA5NzNh; Path=/; HttpOnly; SameSite=Lax',1)
+          })
+        },
+      setCookie: function (cname, cvalue, exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+        var expires = "expires=" + d.toUTCString();
+        console.info(cname + "=" + cvalue + "; " + expires);
+        document.cookie = cname + "=" + cvalue + "; " + expires;
+        console.info(document.cookie);
+      },
+      //获取cookie
+      getCookie: function (cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        console.log(ca, '--->');
+        for (var i = 0; i < ca.length; i++) {
+          var c = ca[i];
+          console.log(c)
+          while (c.charAt(0) == '' ) c = c.substring(1);
+          if (c.indexOf(name) != -1){
+            return c.substring(name.length, c.length);
+          }
+        }
+        return "";
+      },
+      //清除cookie
+      clearCookie: function () {
+        this.setCookie('username', '', -1);
+      },
+      onButtonClick(value) {
+          console.log('fanqq123')
+          axios.get(`http://8.134.19.58:8888/api/business/exa_user`,{
+              params:{username: value}
+            }).then(res => {
+              console.log(res,'fanqq123')
+          })
+        },
+        hello() {
+          alert("来自预设逻辑代码的问候")
+        },
+      },
+      fillter: {},
+    }
+
+    )
+          .use(ElementPlus)
+          .mount("#app");
+  </script>
+</html>

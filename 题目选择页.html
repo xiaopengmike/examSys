@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<!-- 此页面通过VCC进行搭建: https://vcc3.sahadev.tech/ -->
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page</title>
+    <style stype="text/css">
+
+
+      .container {  }
+    </style>
+
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/element-plus/2.1.0/theme-chalk/index.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="app">
+      <div class="container" style="min-height: 100%; padding-bottom: 100px;">
+        <div div-lc-mark>题目类型</div>
+        <div div-lc-mark></div>
+        <el-select v-model="value01" placeholder="请选择" size="small">
+          <el-option
+            v-for="item in options01"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+          ></el-option>
+        </el-select>
+        <div div-lc-mark>题目数量</div>
+        <el-select v-model="value02" placeholder="请选择" size="small">
+          <el-option
+            v-for="item in options02"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+          ></el-option>
+        </el-select>
+        <div div-lc-mark></div>
+        <el-button type="primary" @click="onButtonClick" size="small"
+          >生成考试</el-button
+        >
+      </div>
+    </div>
+  </body>
+
+  <script src="https://cdn.bootcdn.net/ajax/libs/vue/3.2.31/vue.global.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/element-plus/2.1.0/index.full.min.js"></script>
+  <script>
+
+      Vue.createApp({
+      props: [],
+      components: {},
+      data() {
+        return {
+          item: "",
+          options01: [
+            {
+              value: "数学",
+              label: "数学",
+            },
+            {
+              value: "英语",
+              label: "英语",
+            },
+          ],
+         options02: [
+            {
+              value: "5",
+              label: "5",
+            },
+            {
+              value: "10",
+              label: "10",
+            },
+          ],
+
+          value01: "数学",
+          value02: "5",
+          showValue: "开启预览模式后,点击我显示预设逻辑",
+          showText: "这里的值声明于预设JS代码",
+        }
+      },
+      watch: {},
+      computed: {},
+      beforeCreate() {},
+      created() {},
+      beforeMount() {},
+      mounted() {},
+      beforeUpdate() {},
+      updated() {},
+      destroyed() {},
+      methods: {
+        request() {},
+        onButtonClick() {},
+        hello() {
+          alert("来自预设逻辑代码的问候")
+        },
+      },
+      fillter: {},
+    }
+
+    )
+          .use(ElementPlus)
+          .mount("#app");
+  </script>
+</html>

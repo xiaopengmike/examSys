@@ -92,20 +92,28 @@
       const { Input, Radio, Space, Button } = antd
       console.log(22222, Input, Radio, Space, Button);
       const [value, setValue] = useState(1);
+      const [current, setCurrent] = useState(2);
+      const [size, setSize] = useState(4);
+      const optionDataList=[{value:1,lable:'Option A'},{value:2,lable:'Option B'},{value:3,lable:'Option C'},{value:4,lable:'Option D'},{value:5,lable:'Option E'},{value:6,lable:'Option F'},{value:7,lable:'Option G'},{value:8,lable:'Option H'},{value:9,lable:'Option I'},{value:10,lable:'Option L'},{value:11,lable:'Option G'}]
+      const [useOptionList, setUseOptionList] = useState(optionDataList.slice(0,4));
 
       const onChange = (e) => {
         console.log('radio checked', e.target.value);
         setValue(e.target.value);
       };
       const submitOption = (e) => {
-        console.log(value,'fanqq-->123')
+        setCurrent(current+1)
+        let array =  optionDataList.slice((current - 1) * size,current * size);
+        setUseOptionList(array);
         setValue(e.target.value);
       };
+      // useEffect(() => {
+
+      // }, [useOptionList])
       // function submitOption(value) {
       //   console.log(value,'fanqq-->123')
       //     if (value) {
       //       const { data } = axios.get(`https://michaels.atlassian.net/rest/api/2/issue/${value}`).then(res => {
-     
       //     })
       //       console.log(data,'fanqq123')
       //     }
@@ -130,27 +138,26 @@
           })
         }
       }
-
-      return (
+     return (
         <div>
           <h3>前端考试题</h3>
           <div>
             <div>
               <div>（单选题）并行和并发有什么区别</div>
               <Radio.Group onChange={onChange} value={value}>
+              {useOptionList.map((Option, index) => {
+                return (
                 <Space direction="vertical">
-                  <Radio value={1}>Option A</Radio>
-                  <Radio value={2}>Option B</Radio>
-                  <Radio value={3}>Option C</Radio>
-                  <Radio value={4}>
-                    More...
-                    {value === 4 ? <Input style={{ width: 100, marginLeft: 10 }} /> : null}
-                  </Radio>
+                  <Radio
+                        value={Option.value}
+                  >{Option.lable}</Radio>
                 </Space>
+                )
+              })}
               </Radio.Group>
             </div>
           </div>
-          <Button onClick={() => { submitOption(value) }} style={{ width: '100px', height: '40px', fontSize: '18px' }}>确定</Button>
+          <Button onClick={() => { submitOption() }} style={{ width: '100px', height: '40px', fontSize: '18px' }}>确定</Button>
         </div>
       )
     }

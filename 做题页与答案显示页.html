@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<!-- 此页面通过VCC进行搭建: https://vcc3.sahadev.tech/ -->
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page</title>
+    <style stype="text/css">
+      .container {  }
+    </style>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/element-plus/2.1.0/theme-chalk/index.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="app">
+      <div class="container" style="min-height: 100%; padding-bottom: 100px;">
+        <div div-lc-mark>试卷页面</div>
+        <div div-lc-mark></div>
+        <p>题目1： 1+1</p>
+        <el-radio-group v-for="item in tableData" key="index" v-model="radio">
+          <el-radio :label="item.value"></el-radio>
+        </el-radio-group>
+        <div div-lc-mark></div>
+        <el-row>
+          <el-col :span="8"></el-col>
+          <el-col :span="8"></el-col>
+          <el-col :span="8"></el-col>
+        </el-row>
+        <el-button @click="onButtonClick" size="small">提交并查看答案</el-button>
+        <div div-lc-mark></div>
+        <el-tag>正确答案：B</el-tag>
+<br>
+<br>
+        <!-- <p>题目2： 1+1</p>
+        <el-radio-group v-model="radio">
+          <el-radio :label="3">A: 1</el-radio>
+          <el-radio :label="6">B: 2</el-radio>
+          <el-radio :label="9">C: 3</el-radio>
+          <el-radio :label="10">D: 4</el-radio>
+        </el-radio-group>
+        <div div-lc-mark></div>
+        <el-row>
+          <el-col :span="8"></el-col>
+          <el-col :span="8"></el-col>
+          <el-col :span="8"></el-col>
+        </el-row>
+        <el-button @click="onButtonClick" size="small">提交并查看答案</el-button>
+        <div div-lc-mark></div>
+        <el-tag>正确答案：B</el-tag> -->
+      </div>
+    </div>
+  </body>
+
+  <script src="https://cdn.bootcdn.net/ajax/libs/vue/3.2.31/vue.global.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/element-plus/2.1.0/index.full.min.js"></script>
+  <script>
+
+      Vue.createApp({
+      props: [],
+      components: {},
+      data() {
+        return {
+          current:1,
+          size:4,
+          optionDataList:[
+            {value:'Option A'},
+            {value:'Option B'},
+            {value:'Option C'},
+            {value:'Option D'},
+            {value:'Option E'},
+            {value:'Option F'},
+            {value:'Option G'},
+            {value:'Option H'},
+            {value:'Option I'},
+            {value:'Option L'},
+            {value:'Option G'}
+          ],
+          radio: 'Option C',
+          showValue: "开启预览模式后,点击我显示预设逻辑",
+          showText: "这里的值声明于预设JS代码",
+        }
+      },
+      watch: {},
+      computed: {
+        tableData(){
+          return this.optionDataList.slice((this.current - 1) * this.size,this.current * this.size);
+        }
+      },
+      beforeCreate() {},
+      created() {},
+      beforeMount() {},
+      mounted() {},
+      beforeUpdate() {},
+      updated() {},
+      destroyed() {},
+      methods: {
+        request() {},
+        onButtonClick() {
+          this.current ++;
+        },
+        hello() {
+          alert("来自预设逻辑代码的问候")
+        },
+      },
+      fillter: {},
+    }
+
+    )
+          .use(ElementPlus)
+          .mount("#app");
+  </script>
+</html>
